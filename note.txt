@@ -1,0 +1,40 @@
+
+
+cmd: jupyter notebook
+
+tensorflow2.0:
+# Anaconda安装：官网下载安装
+# 测试安装是否成功，CMD下输入：conda 和 python
+#加速安装tensorflow2.0：gpu版本安装电脑需要有NVIDIA显卡
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls_yes
+conda create -n tf2 tensorflow-gpu
+conda env list
+where python
+conda activate tf2
+where python
+ipython  # 执行命令后可直接编写代码
+# conda deactivate
+# IDE下载：官网下载PyCharm
+
+
+git command:
+git init //把这个目录变成Git可以管理的仓库
+git add README.md //文件添加到仓库
+git add . //不但可以跟单一文件，还可以跟通配符，更可以跟目录。一个点就把当前目录下所有未追踪的文件全部add了 
+git add dir_name/.
+git commit -m "first commit" //把文件提交到仓库
+git remote add origin git@github.com:erande/TensorFlow-Deeplearning.git //关联远程仓库
+git push -u origin master //把本地库的所有内容推送到远程库上
+
+
+Permission denied (publickey):
+https://blog.csdn.net/weixin_44394753/article/details/91410463
+https://www.cnblogs.com/feng9exe/p/11772412.html
+
+git config --global user.name "erande"
+git config --global user.email 1873594231@qq.com
+ssh-keygen -t rsa -C "1873594231@qq.com"
+第四步，到git仓库，添加秘钥，
+第五部，ssh -T git@github.com 测试一下通不通，不通就是ssh-agent -s  ssh-add ~/.ssh/id_rsa 操作这两步
