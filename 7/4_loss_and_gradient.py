@@ -37,4 +37,5 @@ with tf.GradientTape() as tape:
 grads = tape.gradient(loss, [w, b])
 print(grads[0], grads[1])  # w_grad, b_grad
 
-# MSE loss: 多分类一般需要使用softmax，而使用softmax需要ont-hot编码，二分类不用
+# MSE loss: 多分类需要调用tf.softmax，而使用softmax需要ont-hot编码，二分类不用
+# Cross Entropy: 多分类一般需要使用softmax，通过from_logits=True内部自动实现
