@@ -1,0 +1,34 @@
+
+# open tensorboard
+E:\PythonProjects\tensorflow_study\logs>tensorboard --logdir logs
+http://DESKTOP-xxx:port
+
+
+# fed data python code:
+current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+logdir = 'logs/' + current_time
+summary_writer = tf.summary.create_file_writer(logdir)
+
+# fed scalar data
+with summary_writer.as_default():
+    tf.summary.scalar('loss', float(loss), step=epoch)
+    tf.summary.scalar('accuracy', float(train_accuracy), step=epoch)
+
+# fed single image
+images = x[:25]
+images = tf.reshape(images, [1, 28, 28, 1])
+with summary_writer.as_default():
+    tf.summary.image('training sample', sample_img, step=0)
+
+
+# fed multi-images
+sample_img = next(iter(db))[0]
+sample_img = sample_img[0]
+sample_img = tf.reshape(sample_img, [1, 28, 28, 1])
+with summary_writer.as_default():
+    tf.summary.image('training images', sample_img, max_outputs=25, step=step)
+
+# 多张图片合在一起显示，不要如上面一样分开
+images = tf.reshape(sample_img, [-1, 28, 28])
+figure = image_grid(images)
+tf.summary.image('training images', plot_yo_image(figure), step=step)
