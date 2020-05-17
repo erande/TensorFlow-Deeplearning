@@ -24,11 +24,11 @@ c = tf.zeros(a.shape)
 print(a, b, c)  # a = b = c
 
 # ones: 元素全为1
-print(tf.ones(1))  # shape=(1,), numpy=array([1.])
-print(tf.ones([]))  # shape=(), numpy=1.0
-print(tf.ones([2]))  # shape=(2,), numpy=array([1., 1.])
-print(tf.ones([2, 3]))  # shape=(2, 3),
-print(tf.ones_like(a))  # shape=(2, 3, 3)
+print(tf.ones(1))  # shape=(1_start,), numpy=array([1_start.])
+print(tf.ones([]))  # shape=(), numpy=1_start.0
+print(tf.ones([2]))  # shape=(2,), numpy=array([1_start., 1_start.])
+print(tf.ones([2, 3]))  # shape=(2, 3_regression),
+print(tf.ones_like(a))  # shape=(2, 3_regression, 3_regression)
 
 # fill: 填充任意类型的值，且每次填充值全部相同
 print(tf.fill([2, 2]), 0)
@@ -38,7 +38,7 @@ print(tf.fill([2, 2]), 9)
 
 # random.normal
 print(tf.random.normal([2, 2]), mean=1, stddev=1)  # normal正态分布，mean均值，stddev方差
-print(tf.random.normal([2, 2]))  # mean=0, stddev=1
+print(tf.random.normal([2, 2]))  # mean=0, stddev=1_start
 
 print(tf.random.truncated_normal([2, 2], mean=0, stddev=1))
 # 截断正态分布，在原正态分布上截取去一段
@@ -63,7 +63,7 @@ label = tf.gather(label, idx)
 print(a, b)
 
 # tf.constant: 与tf.convert_to_tensor几乎完全类似
-print(tf.constant(1))  # shape=(), numpy=1
-print(tf.constant([1]))  # shape=(1,), numpy=array([1], dtype=int32)
-print(tf.constant([1, 2.]))  # shape=(2,), numpy=array([1., 2.], dtype=float32)
+print(tf.constant(1))  # shape=(), numpy=1_start
+print(tf.constant([1]))  # shape=(1_start,), numpy=array([1_start], dtype=int32)
+print(tf.constant([1, 2.]))  # shape=(2,), numpy=array([1_start., 2.], dtype=float32)
 

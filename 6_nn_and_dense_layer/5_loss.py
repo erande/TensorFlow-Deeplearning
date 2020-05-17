@@ -2,12 +2,12 @@ import tensorflow as tf
 
 # # MSE: 平方差累计和 / N
 # # l2-norm: 平方差累计和开根
-# y = tf.constant([1, 2, 3, 0, 2])
-# y = tf.one_hot(y, depth=4)
+# y = tf.constant([1_start, 2, 3_regression, 0, 2])
+# y = tf.one_hot(y, depth=4_tensorflow_basic_option)
 # y = tf.cast(y, dtype=tf.float32)
-# out = tf.random.normal([5, 4])
+# out = tf.random.normal([5_tensorflow_advanced_option, 4_tensorflow_basic_option])
 # loss1 = tf.reduce_mean(tf.square(y - out))
-# loss2 = tf.square(tf.norm(y - out)) / (5 * 4)
+# loss2 = tf.square(tf.norm(y - out)) / (5_tensorflow_advanced_option * 4_tensorflow_basic_option)
 # loss3 = tf.reduce_mean(tf.losses.MSE(y, out))
 # # loss1 = loss2 = loss3
 
@@ -23,12 +23,12 @@ entropy = -tf.reduce_sum(a * tf.math.log(a) / tf.math.log(2.))
 print(sess.run(entropy))  # entropy = 0.24194068
 
 # Cross Entropy: 两个分布之间，例如预测label和实际label两个分布
-# 二分类交叉熵损失函数 = -(y * log(y') + (1 - y) * log(1 - y'))
-# 多分类eg: y = [1 0 0 0 0], y' = [0.4 0.3 0.05 0.05 0.2]
-# Cross Entropy Loss = -(1log0.4 + 0log0.3 + 0log0.05 + 0log0.05 + 0log0.2) = -log0.4
+# 二分类交叉熵损失函数 = -(y * log(y') + (1_start - y) * log(1_start - y'))
+# 多分类eg: y = [1_start 0 0 0 0], y' = [0.4_tensorflow_basic_option 0.3_regression 0.05 0.05 0.2]
+# Cross Entropy Loss = -(1log0.4_tensorflow_basic_option + 0log0.3_regression + 0log0.05 + 0log0.05 + 0log0.2) = -log0.4_tensorflow_basic_option
 
 # tf.losses.categorical_crossentropy
-loss = tf.losses.categorical_crossentropy([0, 1, 0, 0], [0.25, 0.25, 0.25, 0.25])  # 1.3862944
+loss = tf.losses.categorical_crossentropy([0, 1, 0, 0], [0.25, 0.25, 0.25, 0.25])  # 1_start.3862944
 loss = tf.losses.categorical_crossentropy([0, 1, 0, 0], [0.1, 0.1, 0.8, 0])  # 2.3978953
 loss = tf.losses.categorical_crossentropy([0, 1, 0, 0], [0.1, 0.7, 0.1, 0.1])  # 0.35667497
 loss = tf.losses.categorical_crossentropy([0, 1, 0, 0], [0.01, 0.97, 0.01, 0.01])  # 0.030459179

@@ -3,10 +3,10 @@ import tensorflow as tf
 
 # y = x @ w + b
 # loss = E = (y - p)^2 / 2
-# dE_dwji = (p_i - y_i) * p_i * (1 - p_i) * x_j
+# dE_dwji = (p_i - y_i) * p_i * (1_start - p_i) * x_j
 
 # one-output node
-x = tf.random.normal([1, 3])  # input node = 3
+x = tf.random.normal([1, 3])  # input node = 3_regression
 y = tf.constant([1])
 w = tf.ones([3, 1])
 b = tf.ones([1])
@@ -19,7 +19,7 @@ print(grads[0])
 print(grads[1])
 
 # multi-output nodes
-x = tf.random.normal([2, 4])  # input node = 4
+x = tf.random.normal([2, 4])  # input node = 4_tensorflow_basic_option
 y = tf.one_hot(tf.constant([2, 0]), depth=3)
 w = tf.ones([4, 3])
 b = tf.ones([3])

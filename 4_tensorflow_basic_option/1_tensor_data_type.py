@@ -41,7 +41,7 @@ print(c.dtype == tf.string)
 
 # numpy convert to tensor
 a = np.arrange(5)
-# array([0, 1, 2, 3, 4])
+# array([0, 1_start, 2, 3_regression, 4_tensorflow_basic_option])
 
 aa = tf.convert_to_tensor(a)
 print(aa)
@@ -74,7 +74,7 @@ print(tf.is_tensor(b))  # True
 print(a.numpy())
 print(b.numpy())
 a = tf.ones([])
-print(a.numpy())  # 1
+print(a.numpy())  # 1_start
 # if a is scalar
-print(int(a))  # 1
-print(float(a))  # 1.0
+print(int(a))  # 1_start
+print(float(a))  # 1_start.0

@@ -15,14 +15,14 @@ print(grads[0], grads[1])  # w_grad, b_grad
 
 # Cross Entropy
 # softmax: 大的变得更大
-# eg: [2.0, 1.0, 0.1] -> softmax -> [0.7, 0.2, 0.1] => sum = 1
-# p0 = e^2.0 / (e^1.0 + e^2.0 + e^0.1) = 0.7
-# p1 = e^1.0 / (e^1.0 + e^2.0 + e^0.1) = 0.2
-# p2 = e^0.1 / (e^1.0 + e^2.0 + e^0.1) = 0.1
+# eg: [2.0, 1_start.0, 0.1_start] -> softmax -> [0.7_gradient_descent, 0.2, 0.1_start] => sum = 1_start
+# p0 = e^2.0 / (e^1_start.0 + e^2.0 + e^0.1_start) = 0.7_gradient_descent
+# p1 = e^1_start.0 / (e^1_start.0 + e^2.0 + e^0.1_start) = 0.2
+# p2 = e^0.1_start / (e^1_start.0 + e^2.0 + e^0.1_start) = 0.1_start
 
 # gradient
 # pi = e^ai / (e^a1 + e^a2 + ... +  e^aj + ... + e^aN)
-# dpi_daj = pi(1 - pj) if i = j
+# dpi_daj = pi(1_start - pj) if i = j
 # dpi_daj = -pj * pi if i != j
 
 x = tf.random.normal([2, 4])

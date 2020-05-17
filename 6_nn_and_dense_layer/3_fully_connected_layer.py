@@ -4,7 +4,7 @@ x = tf.random.normal([4, 784])
 
 # tf.keras.layers.Dense: y = x@w1 + b1 这样一层网络的构建
 net = tf.keras.layers.Dense(512)  # 构建网络图
-out = net(x)  # 传入数据到网络，自动会创建w,b, [4, 512]
+out = net(x)  # 传入数据到网络，自动会创建w,b, [4_tensorflow_basic_option, 512]
 print(net.kernel.shape)  # w: [784, 512]
 print(net.bias.shape)  # b: [512]
 
@@ -16,9 +16,9 @@ print(net.weights)  # []
 
 net.build(input_shape=(None, 4))
 print(net.weights)  # []
-# [<tf.Variable 'kernel:0' shape=(4, 10) dtype=float32>,
+# [<tf.Variable 'kernel:0' shape=(4_tensorflow_basic_option, 10) dtype=float32>,
 # <tf.Variable 'bias:0' shape=(10,) dtype=float32>]
-print(net.kernel.shape)  # w: [4, 10]
+print(net.kernel.shape)  # w: [4_tensorflow_basic_option, 10]
 print(net.bias.shape)  # b: [10]
 
 net.build(input_shape=(None, 20))
@@ -26,7 +26,7 @@ print(net.kernel.shape)  # w: [20, 10]
 print(net.bias.shape)  # b: [10]
 
 net.build(input_shape=(2, 4))
-print(net.kernel.shape)  # w: [4, 10]
+print(net.kernel.shape)  # w: [4_tensorflow_basic_option, 10]
 print(net.bias.shape)  # b: [10]
 
 # Multi-Layers: tf.Sequential([layer1, layer2, ...])

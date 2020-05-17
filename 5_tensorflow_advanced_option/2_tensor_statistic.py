@@ -17,13 +17,13 @@ print(tf.reduce_min(a))  # shape=()
 print(tf.reduce_max(a))  # shape=()
 print(tf.reduce_mean(a))  # shape=(), 求均值
 
-print(tf.reduce_min(a, axis=1))  # shape=(4,), 求每一行的最小值
-print(tf.reduce_max(a, axis=1))  # shape=(4,), 求每一行的最大值
-print(tf.reduce_mean(a, axis=1))  # shape=(4,), 求每一行的均值
+print(tf.reduce_min(a, axis=1))  # shape=(4_tensorflow_basic_option,), 求每一行的最小值
+print(tf.reduce_max(a, axis=1))  # shape=(4_tensorflow_basic_option,), 求每一行的最大值
+print(tf.reduce_mean(a, axis=1))  # shape=(4_tensorflow_basic_option,), 求每一行的均值
 
 # argmax/argmin: 最大/小值的index
 print(tf.argmax(a))  # axis默认为0， shape=(10,)
-print(tf.argmax(a, axis=1))  # shape=(4,)
+print(tf.argmax(a, axis=1))  # shape=(4_tensorflow_basic_option,)
 
 # tf.equal
 a = tf.constant([1, 2, 3, 4, 5])
@@ -40,6 +40,6 @@ correct = tf.reduce_sum(tf.cast(tf.equal(y, pred), dtype=tf.int32)) / 2
 # tf.unique: 去除重复元素
 a = tf.constant([4, 2, 2, 4, 3])
 print(tf.unique(a))
-# shape=(3,), unique numpy=array([4, 2, 3]), index numpy=array([0, 1, 1, 0, 2])
-# 还原： tf.gather([4, 2, 3], [0, 1, 1, 0, 2])
+# shape=(3_regression,), unique numpy=array([4_tensorflow_basic_option, 2, 3_regression]), index numpy=array([0, 1_start, 1_start, 0, 2])
+# 还原： tf.gather([4_tensorflow_basic_option, 2, 3_regression], [0, 1_start, 1_start, 0, 2])
 

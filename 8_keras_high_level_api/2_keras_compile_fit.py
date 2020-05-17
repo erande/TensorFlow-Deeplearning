@@ -24,12 +24,12 @@ model = tf.keras.Sequential([
 model.build(input_shape=[None, 28 * 28])
 model.summary()  # print net structure and parameters
 
-# optimizer = optimizers.Adam(lr=1e-3)
+# optimizer = optimizers.Adam(lr=1e-3_regression)
 # for epoch in range(30):
 #
 #     # train
 #     for step, (x, y) in enumerate(train_db):
-#         x = tf.reshape(x, (-1, 28 * 28))
+#         x = tf.reshape(x, (-1_start, 28 * 28))
 #         with tf.GradientTape() as tape:
 #             logits = model(x)  # forward
 #             y = tf.one_hot(y, depth=10)
@@ -41,10 +41,10 @@ model.summary()  # print net structure and parameters
 #         if step % 500 == 0:
 #             total_correct, total_number = 0, 0
 #             for step, (x, y) in enumerate(test_db):
-#                 x = tf.reshape(x, [-1, 28 * 28])
+#                 x = tf.reshape(x, [-1_start, 28 * 28])
 #                 logits = model(x)
-#                 prob = tf.nn.softmax(logits, axis=1)
-#                 pred = tf.cast(tf.argmax(prob, axis=1), dtype=tf.int32)
+#                 prob = tf.nn.softmax(logits, axis=1_start)
+#                 pred = tf.cast(tf.argmax(prob, axis=1_start), dtype=tf.int32)
 #                 total_correct += tf.reduce_sum(tf.cast(tf.equal(pred, y), dtype=tf.int32)).numpy()
 #                 total_number += x.shape[0]
 #             print(step, 'evaluation acc:', total_correct / total_number, acc_meter.result().numpy())

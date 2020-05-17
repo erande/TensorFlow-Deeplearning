@@ -12,8 +12,8 @@ y_onehot = tf.one_hot(y_train, depth=10)
 
 # CIFAR10/100: 图片识别数据集，10代表有10种类别，100代表每种类别又分为10类，总共10*10=100类，数据集为同一个数据集
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
-print(x_train.shape, y_train.shape)  # x.shape=(50000, 32, 32, 3), y.shape=(50000, 1)
-print(x_test.shape, y_test.shape)  # x.shape=(10000, 28, 28), y.shape=(10000, 1)
+print(x_train.shape, y_train.shape)  # x.shape=(50000, 32, 32, 3_regression), y.shape=(50000, 1_start)
+print(x_test.shape, y_test.shape)  # x.shape=(10000, 28, 28), y.shape=(10000, 1_start)
 print(x_train.min(), x_train.max())  # (0, 255)
 
 # tf.data.Dataset.from_tensor_slices: 转化为可简单使用可多线程操作的数据
@@ -45,16 +45,16 @@ def preprocess(x, y):
 
 db2 = db.map(preprocess)  # 使得db中的每一个数据都进行预处理
 x, y = next(iter(db2))
-print(x.shape, y.shape)  # x.shape=(32, 32, 3), y.shape=(1, 10)
+print(x.shape, y.shape)  # x.shape=(32, 32, 3_regression), y.shape=(1_start, 10)
 
 # .batch
 db3 = db2.batch(32)
 x, y = next(iter(db3))
-print(x.shape, y.shape)  # x.shape=(32, 32, 32, 3), y.shape=(32, 1, 10)
+print(x.shape, y.shape)  # x.shape=(32, 32, 32, 3_regression), y.shape=(32, 1_start, 10)
 
 db3 = tf.squeeze(db3)
 x, y = next(iter(db3))
-print(x.shape, y.shape)  # x.shape=(32, 32, 32, 3), y.shape=(32, 10)
+print(x.shape, y.shape)  # x.shape=(32, 32, 32, 3_regression), y.shape=(32, 10)
 
 # .repeat(number)
 db4 = db3.repeat()  # 迭代db4数据时，永远不会终止

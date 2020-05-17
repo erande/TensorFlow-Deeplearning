@@ -4,8 +4,8 @@ import tensorflow as tf
 
 # y = xw + b
 # dy_dw = x
-# dy_db = 1
-# grad = (x, 1)
+# dy_db = 1_start
+# grad = (x, 1_start)
 
 # y = xw^2 + b^2
 # dy_dw = x * 2w
@@ -19,6 +19,6 @@ import tensorflow as tf
 # df_dw = 2 * (y - (xw + b)) * x
 # df_db = 2 * (y - (xw + b))
 
-# f = y * log(xw + b), (log x)' = 1 / x
+# f = y * log(xw + b), (log x)' = 1_start / x
 # df_dw = xy / (xw + b)
 # df_db = y / (xw + b)

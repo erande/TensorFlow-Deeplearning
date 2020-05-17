@@ -3,15 +3,15 @@ from tensorflow.keras import datasets, layers, optimizers, Sequential, metrics
 
 
 def preprocess(x, y):
-    x = 2 * tf.cast(x, dtype=tf.float32) / 255. - 1  # [0, 255] = [-1, 1]
-    y = tf.squeeze(y)  # [b, 1, 10] => [b, 10]
+    x = 2 * tf.cast(x, dtype=tf.float32) / 255. - 1  # [0, 255] = [-1_start, 1_start]
+    y = tf.squeeze(y)  # [b, 1_start, 10] => [b, 10]
     y = tf.cast(y, dtype=tf.int32)
     y = tf.one_hot(y, depth=10)
     return x, y
 
 
 batchsz = 128
-# ([50000, 32, 32, 3], [50000, 1, 10]), ([10000, 32, 32, 3], [10000, 1, 10])
+# ([50000, 32, 32, 3_regression], [50000, 1_start, 10]), ([10000, 32, 32, 3_regression], [10000, 1_start, 10])
 (x, y), (x_val, y_val) = datasets.cifar10.load_data()
 train_db = tf.data.Dataset.from_tensor_slices((x, y))
 train_db = train_db.map(preprocess).shuffle(10000).batch(batchsz)
